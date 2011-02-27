@@ -1,77 +1,93 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<name>Activiti - Rest</name>
-	<groupId>org.activiti</groupId>
-	<artifactId>activiti-webapp-rest</artifactId>
-	<packaging>war</packaging>
-
-  <parent>
+    <name>Activiti - Rest</name>
     <groupId>org.activiti</groupId>
-    <artifactId>activiti-root</artifactId>
-    <relativePath>../..</relativePath>
+    <artifactId>activiti-webapp-rest</artifactId>
     <version>5.2-SNAPSHOT</version>
-  </parent>
+    <packaging>war</packaging>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
+  
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
 					<!--
 						<overlays> <overlay>
 						<groupId>org.springframework.extensions.surf</groupId>
 						<artifactId>spring-surf-application</artifactId> <type>war</type>
 						</overlay> </overlays>
 					-->
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>tomcat-maven-plugin</artifactId>
-				<configuration>
-					<url>http://localhost:8080/manager</url>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <configuration>
+                    <url>http://localhost:8080/manager</url>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-	<dependencies>
+    <dependencies>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-engine</artifactId>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>5.2</version>
+            
+        </dependency>
 
 	<!-- scope not "provided" to preserve transitive dependencies in activiti-webapp-rest etc. -->
-    <dependency>
-      <groupId>org.activiti</groupId>
-      <artifactId>activiti-cycle</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-cycle</artifactId>
+            <version>5.2</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.extensions.surf</groupId>
-			<artifactId>spring-webscripts</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.extensions.surf</groupId>
+            <artifactId>spring-webscripts</artifactId>
+            <version>1.0.0-RC2</version>
+        </dependency>
 		
-		<dependency>
-			<groupId>org.springframework.extensions.surf</groupId>
-			<artifactId>spring-webscripts-api</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.extensions.surf</groupId>
+            <artifactId>spring-webscripts-api</artifactId>
+            <version>1.0.0-RC2</version>
+        </dependency>
 		
-		<dependency>
-			<groupId>org.springframework.extensions.surf</groupId>
-			<artifactId>spring-surf</artifactId>
-		</dependency>
-	</dependencies>
-
+        <dependency>
+            <groupId>org.springframework.extensions.surf</groupId>
+            <artifactId>spring-surf</artifactId>
+            <version>1.0.0-RC2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wordpress.salaboy.smarttasks</groupId>
+            <artifactId>smart-tasks-activiti-impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+                
+    </dependencies>
+    <repositories>
+        <repository>
+        
+            <id>alfresco</id>
+            <name>alfresco</name>
+            <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url>
+        </repository>
+    </repositories>
 </project>

@@ -14,6 +14,8 @@
 package org.activiti.rest.model;
 
 import org.activiti.engine.impl.task.TaskEntity;
+import org.example.ws_ht.api.TTask;
+import org.example.ws_ht.api.TTaskAbstract;
 
 
 /**
@@ -39,6 +41,31 @@ public class RestTask extends TaskEntity {
     assignee = task.getAssignee();
     executionId = task.getExecutionId();
     processInstanceId = task.getProcessInstanceId();
+  }
+  public RestTask(TTask task){
+    //this.setCreateTime(task.getCreatedOn());
+    this.setDescription(task.getPresentationName());
+    this.setId(task.getId());
+    this.setName(task.getName().toString());
+    this.setPriority(task.getPriority().intValue());
+    //this.setProcessDefinitionId(task.getProcessDefinitionId());
+    
+    assignee = task.getActualOwner();
+    //executionId = task.getExecutionId();
+    //processInstanceId = task.getProcessInstanceId();
+  }
+  
+  public RestTask(TTaskAbstract task){
+    //this.setCreateTime(task.getCreatedOn());
+    this.setDescription(task.getPresentationName());
+    this.setId(task.getId());
+    this.setName(task.getName().toString());
+    this.setPriority(task.getPriority().intValue());
+    //this.setProcessDefinitionId(task.getProcessDefinitionId());
+    
+    //assignee = task.getActualOwner();
+    //executionId = task.getExecutionId();
+    //processInstanceId = task.getProcessInstanceId();
   }
 
   public String getFormResourceKey() {
